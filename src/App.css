@@ -1,0 +1,16 @@
+.App {
+  margin: auto;
+  height: 97vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+@media (max-width: 768px) {
+  .App {
+    display: block;
+    height: 0;
+  }
+}
