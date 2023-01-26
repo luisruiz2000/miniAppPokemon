@@ -15,6 +15,7 @@ const StateCompo = ({ children }) => {
       const data = dataPokemon.data;
 
       const infoPokemon = {
+        name: data.name,
         img: data.sprites.other.dream_world.front_default,
         type: data.types.map((t) => t.type.name).join(""),
         height: data.height,
@@ -22,11 +23,17 @@ const StateCompo = ({ children }) => {
         base_experience: data.base_experience,
         abilities: data.abilities.map((a) => a.ability.name).join(""),
       };
+
+      if (infoPokemon.name) {
+        console.log(pokemon);
+      }
+
       setSearch(infoPokemon);
-      console.log("=>>>>>>STATE", search);
+
       return infoPokemon;
     } catch (error) {
-      console.log(error);
+      console.log({ msg: "Pokemon No encontrado" });
+      alert("El Pokemon buscado no existe");
     }
   };
 

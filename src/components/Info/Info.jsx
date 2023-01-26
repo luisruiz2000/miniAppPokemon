@@ -9,8 +9,15 @@ const Info = () => {
   return (
     <div className="containerInfo">
       <img src={search.img ? search.img : img} className="img" />
-      <h2>{search.name}</h2>
       <div className="information">
+        {search.name ? (
+          <span className="textInfo">
+            <b>Nombre: </b>
+            {search.name}
+          </span>
+        ) : (
+          ""
+        )}
         {search.type ? (
           <span className="textInfo">
             <b>Tipo: </b>
