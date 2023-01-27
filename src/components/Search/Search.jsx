@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
 import { pokemonContext } from "../../context/servicePokemon.jsx";
+import logo from "../../assets/logo.jpeg";
 import "./Seach.css";
 
 const Search = () => {
   const [search, setSearch] = useState({
-    id: "",
     name: "",
+    id: "",
   });
 
   const [error, setError] = useState({
@@ -13,18 +14,15 @@ const Search = () => {
     errorName: "",
   });
   const expresiones = {
-    name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    name: /^[a-zA-ZÀ-]{0,40}$/, // Letras y espacios, pueden llevar acentos.
     id: /^\d{0,100}$/, // 7 a 14 numeros.
   };
   const { getPokemon } = useContext(pokemonContext);
 
   const onChange = (e) => {
-    // const { value, name } = e.target;
-    const value = e.target.value;
-    const name = e.target.name;
+    const { value, name } = e.target;
     if (name === "id") {
       if (expresiones.id.test(value)) {
-        console.log("entro expresion");
         setSearch({
           ...search,
           [name]: value.toLowerCase(),
@@ -35,6 +33,7 @@ const Search = () => {
     }
 
     if (name === "name") {
+      console.log("value=>", value);
       if (expresiones.name.test(value)) {
         setSearch({
           ...search,
@@ -52,19 +51,19 @@ const Search = () => {
       const data = search.id ? getPokemon(search.id) : getPokemon(search.name);
       setSearch(data);
     }
-    setSearch({ id: "", name: "" });
     setError({ errorId: "", errorName: "" });
+    setSearch({ name: "", id: "" });
   };
 
   return (
     <form className="containerSearch" onSubmit={handleForm}>
-      <h2 className="titleApp">App</h2>
+      <img src={logo} className="logo" />
       <div className="input-group">
         <input
           type="text"
           name="id"
-          autocomplete="off"
-          value={search.id ? search.id : ""}
+          autoComplete="off"
+          value={search.id}
           className="input"
           onChange={onChange}
         />
@@ -75,8 +74,8 @@ const Search = () => {
         <input
           type="text"
           name="name"
-          autocomplete="off"
-          value={search.name ? search.name : ""}
+          autoComplete="off"
+          value={search.name}
           className="input"
           onChange={onChange}
         />

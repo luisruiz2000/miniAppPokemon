@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+.logo {
+  width: 10rem;
+  margin-bottom: 0.5rem;
+}
+
 
 .input-group {
   position: relative;
@@ -38,7 +43,7 @@ input:valid {
 .input:focus~label,
 input:valid~label {
   transform: translateY(-50%) scale(0.8);
-  background-color: #212121;
+  background-color: #000;
   padding: 0 .2em;
   color: #2196f3;
 }
