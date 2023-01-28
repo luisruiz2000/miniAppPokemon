@@ -4,23 +4,20 @@ import logo from "../../assets/logo.jpeg";
 import "./Seach.css";
 
 const Search = () => {
-  const [search, setSearch] = useState({
-    name: "",
-    id: "",
-  });
+  const [search, setSearch] = useState({ name: "", id: "" });
 
-  const [error, setError] = useState({
-    errorId: "",
-    errorName: "",
-  });
-  const expresiones = {
-    name: /^[a-zA-ZÀ-]{0,40}$/, // Letras y espacios, pueden llevar acentos.
-    id: /^\d{0,100}$/, // 7 a 14 numeros.
-  };
+  const [error, setError] = useState({ errorId: "", errorName: "" });
+
   const { getPokemon } = useContext(pokemonContext);
+
+  const expresiones = {
+    name: /^[a-zA-ZÀ-]{0,40}$/,
+    id: /^\d{0,100}$/,
+  };
 
   const onChange = (e) => {
     const { value, name } = e.target;
+
     if (name === "id") {
       if (expresiones.id.test(value)) {
         setSearch({
@@ -33,7 +30,6 @@ const Search = () => {
     }
 
     if (name === "name") {
-      console.log("value=>", value);
       if (expresiones.name.test(value)) {
         setSearch({
           ...search,
@@ -47,9 +43,9 @@ const Search = () => {
 
   const handleForm = (e) => {
     e.preventDefault();
+
     if (search !== "") {
-      const data = search.id ? getPokemon(search.id) : getPokemon(search.name);
-      setSearch(data);
+      search.id ? getPokemon(search.id) : getPokemon(search.name);
     }
     setError({ errorId: "", errorName: "" });
     setSearch({ name: "", id: "" });

@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-
 import axios from "axios";
 import React from "react";
 
@@ -24,13 +23,7 @@ const StateCompo = ({ children }) => {
         abilities: data.abilities.map((a) => a.ability.name).join(""),
       };
 
-      if (infoPokemon.name) {
-        console.log(pokemon);
-      }
-
       setSearch(infoPokemon);
-
-      return infoPokemon;
     } catch (error) {
       console.log({ msg: "Pokemon No encontrado" });
       alert("El Pokemon buscado no existe");
