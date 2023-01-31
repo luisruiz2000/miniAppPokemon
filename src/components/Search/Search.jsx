@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { pokemonContext } from "../../context/servicePokemon.jsx";
-import logo from "../../assets/logo.jpeg";
+import logo from "../../assets/gallery/logo.jpeg";
 import "./Seach.css";
 
 const Search = () => {
