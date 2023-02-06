@@ -17,6 +17,7 @@ const Search = () => {
 
   const onChange = (e) => {
     const { value, name } = e.target;
+    setError({ errorId: "", errorName: "" });
 
     if (name === "id") {
       if (expresiones.id.test(value)) {
