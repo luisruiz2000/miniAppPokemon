@@ -80,7 +80,8 @@ input:valid~label {
     width: 20rem;
   }
 
-  .btn {
-    margin: 0 1rem 1rem 0;
+  .btnSearch {
+    text-align: center !important;
+    margin-bottom: 1rem;
   }
 }

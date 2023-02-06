@@ -1,7 +1,9 @@
 .containerInfo {
+  width: 50%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .img {
@@ -31,6 +33,10 @@
 }
 
 @media (max-width: 768px) {
+  .containerInfo {
+    width: 100%;
+  }
+
   .img {
     width: 18rem;
   }

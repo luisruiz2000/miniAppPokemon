@@ -10,8 +10,8 @@ function App() {
   return (
     <StateCompo>
       <div className="App">
-        <Info />
         <Search />
+        <Info />
       </div>
     </StateCompo>
   );
